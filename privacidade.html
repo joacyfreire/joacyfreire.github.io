@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Política de Privacidade — SaveHelp</title>
+  <meta name="description" content="Política de Privacidade da extensão SaveHelp para Google Chrome. Como tratamos dados de escalas, preferências e permissões." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14201c;
+      --ink-soft: #3a4a44;
+      --muted: #5c6b64;
+      --line: #d5ddd8;
+      --paper: #f7faf8;
+      --surface: #ffffff;
+      --brand: #0f6b4c;
+      --brand-deep: #0a4d38;
+      --accent: #c45c26;
+      --highlight: #e8f3ee;
+      --shadow: 0 1px 0 rgba(20, 32, 28, 0.06);
+      --radius: 10px;
+      --max: 44rem;
+      --font-sans: "Manrope", system-ui, sans-serif;
+      --font-serif: "Source Serif 4", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      background:
+        radial-gradient(ellipse 120% 80% at 0% -10%, #dceee6 0%, transparent 55%),
+        radial-gradient(ellipse 90% 60% at 100% 0%, #f0e8df 0%, transparent 45%),
+        linear-gradient(180deg, #eef5f1 0%, var(--paper) 28%, #f4f7f5 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--brand-deep);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      width: min(100% - 2rem, 68rem);
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 960px) {
+      .page {
+        grid-template-columns: 15rem minmax(0, var(--max));
+        justify-content: center;
+        gap: 3rem;
+        padding-top: 3.5rem;
+      }
+    }
+
+    .brand-bar {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      letter-spacing: -0.03em;
+      color: var(--brand-deep);
+      line-height: 1.1;
+    }
+
+    .brand span {
+      color: var(--brand);
+    }
+
+    .meta-top {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .toc {
+      font-family: var(--font-sans);
+    }
+
+    @media (min-width: 960px) {
+      .toc {
+        position: sticky;
+        top: 1.5rem;
+        align-self: start;
+        max-height: calc(100vh - 3rem);
+        overflow: auto;
+      }
+    }
+
+    .toc h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .toc a {
+      display: block;
+      padding: 0.2rem 0;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      line-height: 1.35;
+      border-left: 2px solid transparent;
+      padding-left: 0.65rem;
+    }
+
+    .toc a:hover {
+      color: var(--brand);
+      border-left-color: var(--brand);
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-family: var(--font-sans);
+      font-size: clamp(1.65rem, 3.5vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .hero-lede {
+      margin: 0 0 1.25rem;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      max-width: 38rem;
+    }
+
+    .facts {
+      display: grid;
+      gap: 0.65rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .facts dt {
+      margin: 0;
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .facts dd {
+      margin: 0.15rem 0 0;
+      color: var(--ink);
+    }
+
+    @media (min-width: 560px) {
+      .facts {
+        grid-template-columns: auto 1fr;
+        column-gap: 1.25rem;
+        row-gap: 0.55rem;
+        align-items: baseline;
+      }
+
+      .facts dt {
+        margin: 0;
+      }
+
+      .facts dd {
+        margin: 0;
+      }
+    }
+
+    section {
+      margin: 0 0 2.25rem;
+      scroll-margin-top: 1.5rem;
+    }
+
+    section h2 {
+      margin: 0 0 0.85rem;
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--brand-deep);
+    }
+
+    section h3 {
+      margin: 1.35rem 0 0.55rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 650;
+      color: var(--ink);
+    }
+
+    p {
+      margin: 0 0 0.9rem;
+    }
+
+    ul, ol {
+      margin: 0 0 0.9rem;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    li::marker {
+      color: var(--brand);
+    }
+
+    .callout {
+      margin: 1rem 0 1.25rem;
+      padding: 0.9rem 1rem;
+      background: var(--highlight);
+      border-left: 3px solid var(--brand);
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+    }
+
+    .callout strong {
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 650;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      line-height: 1.45;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      background: #edf4f0;
+      font-weight: 650;
+      color: var(--brand-deep);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td:first-child {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 560px) {
+      td:first-child {
+        white-space: normal;
+      }
+    }
+
+    code {
+      font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+      font-size: 0.86em;
+      background: #e8efeB;
+      color: var(--brand-deep);
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .email-placeholder {
+      font-style: italic;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="brand-bar">
+      <div class="brand">Save<span>Help</span></div>
+      <div class="meta-top">Aviso de privacidade</div>
+    </header>
+
+    <nav class="toc" aria-label="Sumário">
+      <h2>Sumário</h2>
+      <ol>
+        <li><a href="#quem-somos">1. Quem somos</a></li>
+        <li><a href="#resumo">2. Resumo</a></li>
+        <li><a href="#dados">3. Dados que tratamos</a></li>
+        <li><a href="#finalidade">4. Finalidade</a></li>
+        <li><a href="#lgpd">5. Bases legais (LGPD)</a></li>
+        <li><a href="#permissoes">6. Permissões</a></li>
+        <li><a href="#dominios">7. Domínios</a></li>
+        <li><a href="#compartilhamento">8. Compartilhamento</a></li>
+        <li><a href="#retencao">9. Retenção</a></li>
+        <li><a href="#backup">10. Backup exportado</a></li>
+        <li><a href="#notificacoes">11. Notificações</a></li>
+        <li><a href="#dev">12. Modo desenvolvedor</a></li>
+        <li><a href="#criancas">13. Crianças</a></li>
+        <li><a href="#seguranca">14. Segurança</a></li>
+        <li><a href="#alteracoes">15. Alterações</a></li>
+        <li><a href="#contato">16. Contato</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="hero">
+        <h1>Política de Privacidade</h1>
+        <p class="hero-lede">
+          Como o SaveHelp trata dados ao fazer backup local da sua escala e enviar lembretes de atividades no Chrome.
+        </p>
+        <dl class="facts">
+          <dt>Última atualização</dt>
+          <dd>8 de agosto de 2026</dd>
+          <dt>Extensão</dt>
+          <dd>SaveHelp (extensão para Google Chrome)</dd>
+          <dt>Contato</dt>
+          <dd><span class="email-placeholder">[SEU E-MAIL]</span></dd>
+        </dl>
+      </div>
+
+      <section id="quem-somos">
+        <h2>1. Quem somos</h2>
+        <p>
+          O SaveHelp é uma extensão independente para Google Chrome que faz backup local da escala de trabalho exibida no portal de escalas da sua empresa e envia lembretes de atividades.
+        </p>
+        <div class="callout">
+          <strong>Aviso importante:</strong> esta extensão não é afiliada, endossada ou mantida pela Teleperformance nem por qualquer empregador. É uma ferramenta de terceiros para uso pessoal.
+        </div>
+      </section>
+
+      <section id="resumo">
+        <h2>2. Resumo</h2>
+        <ul>
+          <li>Escalas, alterações e histórico ficam apenas no seu dispositivo (<code>chrome.storage.local</code>).</li>
+          <li>Preferências leves (notificações, retenção, portais) podem ser sincronizadas pela conta Google / Chrome Sync (<code>chrome.storage.sync</code>).</li>
+          <li>Não operamos servidores próprios para receber, armazenar ou processar suas escalas.</li>
+          <li>Não usamos analytics, cookies de rastreamento, publicidade ou serviços de terceiros para coleta de dados da extensão.</li>
+          <li>Não vendemos nem compartilhamos dados pessoais com terceiros.</li>
+        </ul>
+      </section>
+
+      <section id="dados">
+        <h2>3. Dados que tratamos</h2>
+
+        <h3>3.1 Dados lidos nas páginas do portal</h3>
+        <p>
+          Quando você concede permissão e acessa um portal de escalas habilitado, a extensão pode ler somente o conteúdo visível do DOM da página, por exemplo:
+        </p>
+        <ul>
+          <li>horários e atividades da escala (diária, semanal ou mensal);</li>
+          <li>informações necessárias para detectar alterações entre versões.</li>
+        </ul>
+        <p>
+          A extensão <strong>não</strong> lê login, senha, tokens de autenticação nem formulários de credenciais.
+        </p>
+
+        <h3>3.2 Dados armazenados localmente (dispositivo)</h3>
+        <p>Em <code>chrome.storage.local</code>, podem ser guardados:</p>
+        <ul>
+          <li>cópias da escala sincronizada;</li>
+          <li>histórico de alterações (comparativo antes/depois);</li>
+          <li>histórico de sincronizações;</li>
+          <li>snapshots arquivados de versões anteriores;</li>
+          <li>configurações de uso (incluindo portais habilitados);</li>
+          <li>flags locais (por exemplo, modo desenvolvedor, lembretes).</li>
+        </ul>
+        <p>Esses dados não são enviados a servidores do SaveHelp.</p>
+
+        <h3>3.3 Preferências sincronizadas (Chrome Sync)</h3>
+        <p>
+          As seguintes preferências podem ser espelhadas em <code>chrome.storage.sync</code> (associadas à sua conta Google no Chrome):
+        </p>
+        <ul>
+          <li>opções de notificação;</li>
+          <li>opções de lembrete de sincronização;</li>
+          <li>janela de retenção de dados;</li>
+          <li>configuração de portais (incluindo URLs/padrões de portais que você cadastrou).</li>
+        </ul>
+        <p>
+          A sincronização usa a infraestrutura do Google Chrome, não servidores nossos. Escalas e histórico de alterações <strong>não</strong> entram no sync.
+        </p>
+
+        <h3>3.4 Dados que não coletamos</h3>
+        <p>Não coletamos de forma intencional:</p>
+        <ul>
+          <li>nome, CPF, e-mail profissional ou endereço;</li>
+          <li>credenciais de acesso;</li>
+          <li>histórico geral de navegação fora dos portais autorizados;</li>
+          <li>localização GPS;</li>
+          <li>dados de pagamento.</li>
+        </ul>
+      </section>
+
+      <section id="finalidade">
+        <h2>4. Finalidade do tratamento</h2>
+        <p>Usamos os dados acima exclusivamente para:</p>
+        <ul>
+          <li>fazer backup local da escala;</li>
+          <li>detectar e avisar alterações de horário/atividade;</li>
+          <li>agendar lembretes locais antes das atividades;</li>
+          <li>permitir exportação/importação manual de backup (JSON);</li>
+          <li>aplicar retenção/limpeza configurável no dispositivo;</li>
+          <li>lembrar sincronização ou backup quando configurado.</li>
+        </ul>
+      </section>
+
+      <section id="lgpd">
+        <h2>5. Bases legais (LGPD)</h2>
+        <p>Quando aplicável no Brasil, o tratamento se fundamenta em:</p>
+        <ul>
+          <li>execução de funcionalidade solicitada pelo titular (backup e lembretes que você ativa);</li>
+          <li>legítimo interesse limitado à operação local da extensão, sem compartilhamento com terceiros;</li>
+          <li>consentimento, quando você concede permissões de host sob demanda e habilita portais.</li>
+        </ul>
+      </section>
+
+      <section id="permissoes">
+        <h2>6. Permissões do navegador</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Permissão</th>
+                <th scope="col">Motivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Permissões de host opcionais (<code>*://*/*</code>, sob demanda)</td>
+                <td>Ler a escala apenas nos portais que você habilitar</td>
+              </tr>
+              <tr>
+                <td><code>storage</code></td>
+                <td>Guardar dados locais e preferências sincronizadas</td>
+              </tr>
+              <tr>
+                <td><code>scripting</code> / <code>activeTab</code></td>
+                <td>Executar leitura do DOM no portal ativo</td>
+              </tr>
+              <tr>
+                <td><code>tabs</code></td>
+                <td>Detectar abertura/atualização de abas do portal</td>
+              </tr>
+              <tr>
+                <td><code>alarms</code></td>
+                <td>Sincronização periódica, poda e lembretes locais</td>
+              </tr>
+              <tr>
+                <td><code>notifications</code></td>
+                <td>Avisos de atividades, alteração, backup e sync</td>
+              </tr>
+              <tr>
+                <td><code>contextMenus</code></td>
+                <td>Atalho para abrir Configurações</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          A extensão pode alterar CSS do portal (por exemplo, altura de iframe) apenas para melhorar a visualização da escala; não altera credenciais nem envia dados para fora do navegador.
+        </p>
+      </section>
+
+      <section id="dominios">
+        <h2>7. Domínios acessados</h2>
+        <p>
+          A extensão só age em portais que você habilitar. Sugestões padrão incluem padrões como:
+        </p>
+        <ul>
+          <li><code>minhaescala.teleperformance.com.br</code></li>
+          <li><code>*.teleperformance.com.br</code></li>
+          <li><code>*.teleperformance.com</code></li>
+        </ul>
+        <p>
+          Você também pode cadastrar portais personalizados. Nesses casos, a leitura do DOM ocorre somente nos hosts autorizados por você.
+        </p>
+      </section>
+
+      <section id="compartilhamento">
+        <h2>8. Compartilhamento e terceiros</h2>
+        <ul>
+          <li>Não compartilhamos escalas com terceiros.</li>
+          <li>Não vendemos dados.</li>
+          <li>Links externos opcionais (por exemplo, formulário para sugerir portal) só são abertos se você clicar; a extensão não envia automaticamente sua escala a esses links.</li>
+          <li>Preferências no <code>chrome.storage.sync</code> podem trafegar pela infraestrutura do Google conforme as políticas do Chrome/Google Account.</li>
+        </ul>
+      </section>
+
+      <section id="retencao">
+        <h2>9. Retenção e exclusão</h2>
+        <p>
+          Escalas e alterações permanecem no dispositivo até você apagá-las ou até a retenção configurada.
+        </p>
+        <p>
+          Há poda automática configurável (retenção de alterações e limpeza de períodos passados sem alteração).
+        </p>
+        <p>Você pode:</p>
+        <ul>
+          <li>usar <strong>Limpar dados / Forçar limpeza</strong> nas opções da extensão;</li>
+          <li>remover a extensão (os dados locais da extensão deixam de ser acessíveis pelo SaveHelp);</li>
+          <li>gerenciar dados do Chrome Sync nas configurações da sua conta Google/Chrome.</li>
+        </ul>
+      </section>
+
+      <section id="backup">
+        <h2>10. Backup exportado pelo usuário</h2>
+        <p>
+          Se você exportar um arquivo JSON de backup, esse arquivo fica sob o seu controle (download local). A extensão não envia esse arquivo a nenhum servidor nosso.
+        </p>
+      </section>
+
+      <section id="notificacoes">
+        <h2>11. Notificações e alarmes</h2>
+        <p>
+          Lembretes e avisos são agendados localmente via <code>chrome.alarms</code> e exibidos com <code>chrome.notifications</code>. Não há servidor intermediário.
+        </p>
+      </section>
+
+      <section id="dev">
+        <h2>12. Modo desenvolvedor</h2>
+        <p>
+          Ferramentas de teste (relógio de debug, simulações) só aparecem após ativação explícita. Elas operam localmente e não enviam dados para fora do navegador.
+        </p>
+      </section>
+
+      <section id="criancas">
+        <h2>13. Crianças</h2>
+        <p>
+          A extensão não se destina a menores de 13 anos (ou idade mínima aplicável) e não coleta dados de crianças de forma consciente.
+        </p>
+      </section>
+
+      <section id="seguranca">
+        <h2>14. Segurança</h2>
+        <p>
+          Os dados ficam no armazenamento do Chrome no seu dispositivo (e, no caso das preferências, no Chrome Sync). A segurança depende também das proteções do seu sistema operacional, conta Google e práticas de uso do navegador.
+        </p>
+      </section>
+
+      <section id="alteracoes">
+        <h2>15. Alterações nesta política</h2>
+        <p>
+          Podemos atualizar esta política. A data de “Última atualização” será revisada. Em mudanças relevantes, recomendamos reler esta página antes de continuar usando a extensão.
+        </p>
+      </section>
+
+      <section id="contato">
+        <h2>16. Contato e direitos do titular</h2>
+        <p>
+          Para dúvidas, solicitações de informação ou exclusão relacionadas a esta extensão, contate:
+          <span class="email-placeholder">[SEU E-MAIL]</span>.
+        </p>
+        <p>
+          Se a LGPD se aplicar a você, você pode solicitar acesso, correção, exclusão ou informações sobre o tratamento dos dados tratados pela extensão, na medida em que estiverem sob nosso controle (na prática, a maior parte dos dados está apenas no seu dispositivo e pode ser apagada por você nas próprias opções do SaveHelp).
+        </p>
+      </section>
+
+      <footer>
+        <p>© 2026 SaveHelp — ferramenta independente para uso pessoal.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
