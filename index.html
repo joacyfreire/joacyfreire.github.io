@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joacy Freire — Projetos pessoais</title>
+  <meta name="description" content="Bem-vindo aos projetos pessoais de Joacy Freire." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --bg-2: #0d1420;
+      --text: #e8eef6;
+      --muted: #9aabbf;
+      --line: rgba(232, 238, 246, 0.12);
+      --accent: #4aa3e0;
+      --bahia: #0066b3;
+      --bahia-red: #e30613;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body: "Figtree", system-ui, sans-serif;
+      --font-ui: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+    }
+
+    .shell {
+      width: min(100% - 2.5rem, 52rem);
+      margin: 0 auto;
+    }
+
+    /* —— HERO —— */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem 0 4rem;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% -10%, #1a2a44 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 80% 60%, rgba(0, 102, 179, 0.2), transparent 60%),
+        radial-gradient(ellipse 40% 35% at 15% 75%, rgba(227, 6, 19, 0.1), transparent 55%),
+        linear-gradient(180deg, #0a101a 0%, var(--bg) 70%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      z-index: 3;
+      background: linear-gradient(
+        90deg,
+        var(--bahia) 0 20%,
+        var(--bahia-red) 20% 40%,
+        #fff 40% 60%,
+        var(--bahia-red) 60% 80%,
+        var(--bahia) 80% 100%
+      );
+      opacity: 0.9;
+    }
+
+    .scan {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.035;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0 2px,
+        rgba(0, 0, 0, 0.85) 2px 3px
+      );
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(1.5px 1.5px at 8% 18%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 22% 40%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1.5px 1.5px at 35% 12%, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1px 1px at 48% 28%, rgba(255,255,255,0.55), transparent),
+        radial-gradient(2px 2px at 62% 8%, rgba(255,255,255,0.95), transparent),
+        radial-gradient(1px 1px at 74% 33%, rgba(255,255,255,0.65), transparent),
+        radial-gradient(1.5px 1.5px at 88% 16%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 12% 62%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 41% 72%, rgba(255,255,255,0.45), transparent),
+        radial-gradient(1.5px 1.5px at 69% 58%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 93% 48%, rgba(255,255,255,0.55), transparent),
+        radial-gradient(1px 1px at 55% 45%, rgba(255,255,255,0.4), transparent);
+      opacity: 0.85;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      width: min(100% - 2.5rem, 52rem);
+      margin: 0 auto;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav a {
+      text-decoration: none;
+      margin-left: 1.25rem;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .nav__brand {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+    }
+
+    .nav__brand span {
+      color: var(--bahia-red);
+    }
+
+    .hero__status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0 0 1.65rem;
+      padding: 0.28rem 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(7, 11, 18, 0.35);
+    }
+
+    .hero__status i {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: #3ddc84;
+      box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.18);
+      animation: pulse-dot 2.2s ease-in-out infinite;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 2.5rem, 52rem);
+      margin: 0 auto;
+      padding-top: 5rem;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(3.5rem, 14vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+    }
+
+    .hero__line {
+      width: 4.5rem;
+      height: 3px;
+      margin: 1.75rem 0;
+      border: 0;
+      background: linear-gradient(
+        90deg,
+        var(--bahia),
+        #fff 48% 52%,
+        var(--bahia-red)
+      );
+    }
+
+    .hero__emoji {
+      display: inline;
+      margin-right: 0.2rem;
+      font-style: normal;
+      opacity: 0.9;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 28rem;
+      font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .hero p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .hero__links a {
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232, 238, 246, 0.35);
+      padding-bottom: 0.2rem;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .hero__links a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .hero__links a.wa,
+    .contact a.wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .wa-icon {
+      width: 1.05em;
+      height: 1.05em;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .hero__links a.wa {
+      color: #6dcea0;
+      border-bottom-color: rgba(109, 206, 160, 0.4);
+    }
+
+    /* —— SECTIONS —— */
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .about {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+    }
+
+    .label {
+      margin: 0 0 0.85rem;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .label .emo {
+      margin-right: 0.35rem;
+      opacity: 0.85;
+    }
+
+    h2 {
+      margin: 0 0 1.75rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      max-width: 16ch;
+    }
+
+    .about p {
+      margin: 0 0 1.15rem;
+      color: var(--muted);
+      max-width: 38rem;
+    }
+
+    .about p:last-of-type { margin-bottom: 0; }
+
+    .traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 2.25rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .traits li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .traits li .emo {
+      font-size: 0.95rem;
+      line-height: 1;
+      opacity: 0.92;
+    }
+
+    .traits li.bahia {
+      border-color: rgba(0, 102, 179, 0.45);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 102, 179, 0.12),
+        rgba(227, 6, 19, 0.08)
+      );
+    }
+
+    .traits li.bahia .emo {
+      letter-spacing: -0.15em;
+    }
+
+    .projects {
+      border-top: 1px solid var(--line);
+    }
+
+    .projects > .shell > p {
+      margin: -0.75rem 0 2.5rem;
+      color: var(--muted);
+    }
+
+    .project {
+      display: block;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--line);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .project:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project:hover { color: var(--accent); }
+
+    .project strong {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .project strong .emo {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .project span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .project:hover span { color: inherit; opacity: 0.75; }
+
+    .contact {
+      background: #05080e;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact p {
+      margin: 0 0 1.75rem;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    .contact a.wa-btn {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #6dcea0;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(109, 206, 160, 0.45);
+      padding-bottom: 0.25rem;
+    }
+
+    .contact a.wa-btn:hover {
+      color: #8fdfb5;
+      border-bottom-color: #8fdfb5;
+    }
+
+    footer {
+      padding: 1.75rem 0 2.25rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(154, 171, 191, 0.7);
+      border-top: 1px solid var(--line);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition-delay: var(--d, 0ms);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer .emo {
+      opacity: 0.85;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.85); }
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.65; }
+      to { opacity: 0.95; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .stars,
+      .hero__status i { animation: none; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="scan" aria-hidden="true"></div>
+    <nav class="nav" aria-label="Principal">
+      <p class="nav__brand">PLAYER <span>01</span> · JF</p>
+      <div>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+    <div class="hero__content">
+      <p class="hero__status"><i aria-hidden="true"></i> Disponível para projetos</p>
+      <h1>Joacy<br />Freire</h1>
+      <hr class="hero__line" />
+      <p>
+        Bem-vindo. Este é o cantinho onde guardo o que construo —
+        <strong>com curiosidade, afeto e um pouco de ousadia</strong>.
+      </p>
+      <div class="hero__links">
+        <a href="#sobre"><span class="hero__emoji" aria-hidden="true">🎮</span> Sobre mim</a>
+        <a href="#projetos"><span class="hero__emoji" aria-hidden="true">🕹️</span> Ver projetos</a>
+        <a class="wa" data-whatsapp href="#" target="_blank" rel="noopener noreferrer">
+          <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74 1.78.77 2.28.84 2.97.79.48-.04 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.11-.22-.16-.47-.28z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="about" id="sobre">
+    <div class="shell">
+      <p class="label reveal"><span class="emo" aria-hidden="true">👾</span> Sobre mim</p>
+      <h2 class="reveal" style="--d:80ms">Games, futebol, pets e a mãe que move o mundo</h2>
+      <p class="reveal" style="--d:140ms">
+        Sou entusiasta gamer, torcedor do Bahia e apaixonado por cachorros e gatos.
+        Acima de tudo, amo a minha mãe — a melhor que eu poderia ter.
+      </p>
+      <p class="reveal" style="--d:200ms">
+        Saber como pedir para uma IA pode ser tão poderoso quanto saber escrever código.
+        Entendo que cada um tem a sua função e uma complementa a outra.
+        Encontrei na engenharia de prompts uma nova forma de criar:
+        antes o que era só uma ideia, agora é algo real e funcional.
+      </p>
+      <ul class="traits reveal" style="--d:260ms" aria-label="Traços">
+        <li><span class="emo" aria-hidden="true">❤️</span> Mãe</li>
+        <li><span class="emo" aria-hidden="true">🐾</span> Cães &amp; gatos</li>
+        <li><span class="emo" aria-hidden="true">🎮</span> Gamer</li>
+        <li class="bahia"><span class="emo" aria-hidden="true">🔵🔴⚪</span> Bahia</li>
+        <li><span class="emo" aria-hidden="true">⌨️</span> Prompt Engineer</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="projects" id="projetos">
+    <div class="shell">
+      <p class="label reveal"><span class="emo" aria-hidden="true">🕹️</span> Projetos</p>
+      <h2 class="reveal" style="--d:80ms">No ar</h2>
+      <p class="reveal" style="--d:120ms">O que já está publicado — e o que ainda vai chegar.</p>
+      <a class="project reveal" style="--d:180ms" href="savehelp/privacidade.html">
+        <strong><span class="emo" aria-hidden="true">🧩</span> SaveHelp</strong>
+        <span>Extensão para Google Chrome — política de privacidade</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="shell">
+      <p class="label reveal"><span class="emo" aria-hidden="true">📡</span> Contato</p>
+      <h2 class="reveal" style="--d:80ms">Vamos conversar</h2>
+      <p class="reveal" style="--d:140ms">
+        Quer falar de um projeto, de uma ideia ou só dizer oi?
+        Me chama no WhatsApp.
+      </p>
+      <a class="wa-btn reveal" style="--d:200ms" data-whatsapp href="#" target="_blank" rel="noopener noreferrer">
+        <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74 1.78.77 2.28.84 2.97.79.48-.04 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.11-.22-.16-.47-.28z"/></svg>
+        Entrar em contato pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Joacy Freire · <span class="emo" aria-hidden="true">🔵🔴⚪</span> É o Bahia</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    var WHATSAPP_PHONE = "55SEUNUMERO";
+    var WHATSAPP_MSG = "Olá Joacy! Vim pelo seu site.";
+    var whatsappUrl =
+      "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(WHATSAPP_MSG);
+    document.querySelectorAll("[data-whatsapp]").forEach(function (el) {
+      el.href = whatsappUrl;
+    });
+
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var items = document.querySelectorAll(".reveal");
+      if (!reduce && "IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.16 });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("in"); });
+      }
+    })();
+  </script>
+</body>
+</html>
