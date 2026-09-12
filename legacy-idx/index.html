@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Joacy Freire</title>
+  <meta name="description" content="Portfólio pessoal de Joacy Freire, com projetos, trajetória e contato profissional." />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            ink: {
+              base: '#080807',
+              soft: '#11100e',
+              panel: '#171512',
+              line: 'rgba(234, 224, 201, 0.13)',
+              muted: '#a7a09a',
+              text: '#eee7dc',
+              gold: '#c9a66b',
+              moss: '#7f9172',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #080807;
+      --paper: #eee7dc;
+      --muted: #a7a09a;
+      --line: rgba(234, 224, 201, 0.13);
+      --gold: #c9a66b;
+      --gold-soft: rgba(201, 166, 107, 0.16);
+      --moss: #7f9172;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(135deg, rgba(201, 166, 107, 0.07), transparent 30%),
+        linear-gradient(180deg, #0c0b0a 0%, var(--page) 38%, #0f0e0c 100%);
+      color: var(--paper);
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.72), transparent 75%);
+    }
+
+    ::selection {
+      background: rgba(201, 166, 107, 0.35);
+      color: #fffaf0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 5px;
+    }
+
+    .shell {
+      width: min(100% - 2rem, 74rem);
+      margin: 0 auto;
+    }
+
+    .hairline {
+      background: linear-gradient(90deg, transparent, rgba(201, 166, 107, 0.5), transparent);
+      height: 1px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(23, 21, 18, 0.88), rgba(14, 13, 11, 0.9));
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.35rem;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 240ms ease;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .reveal {
+      opacity: 0.01;
+      filter: blur(10px);
+      transform: translateY(18px);
+      transition: opacity 780ms cubic-bezier(.16, 1, .3, 1), filter 780ms cubic-bezier(.16, 1, .3, 1), transform 780ms cubic-bezier(.16, 1, .3, 1);
+      transition-delay: var(--d, 0ms);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen overflow-x-hidden">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/[0.07] bg-[#080807]/82 backdrop-blur-xl">
+    <div class="shell flex h-20 items-center justify-between gap-6">
+      <a class="flex items-center gap-3 text-sm font-semibold tracking-[0.18em] text-stone-200 uppercase transition-colors hover:text-white" href="#">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-[11px] tracking-normal text-ink-gold">JF</span>
+        <span>Joacy Freire</span>
+      </a>
+      <nav class="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.18em] text-stone-400 sm:flex" aria-label="Principal">
+        <a class="nav-link transition-colors hover:text-stone-100" href="#sobre">Sobre</a>
+        <a class="nav-link transition-colors hover:text-stone-100" href="#projetos">Projetos</a>
+        <a class="nav-link transition-colors hover:text-stone-100" href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell grid min-h-[92vh] grid-cols-1 items-end gap-12 pt-32 pb-16 lg:grid-cols-[1fr_21rem] lg:pt-40">
+      <div class="max-w-4xl">
+        <div class="mb-10 flex items-center gap-4">
+          <span class="h-px w-12 bg-ink-gold"></span>
+          <span class="text-xs font-semibold uppercase tracking-[0.24em] text-stone-400">Portfólio pessoal</span>
+        </div>
+        <h1 class="max-w-5xl text-balance font-serif text-[4.75rem] font-normal leading-[0.92] tracking-[-0.035em] text-stone-50 sm:text-[6rem] lg:text-[7.5rem]">
+          Joacy<br />Freire
+        </h1>
+        <p class="mt-9 max-w-2xl text-lg font-light leading-8 text-stone-300 sm:text-xl">
+          Construo projetos com curiosidade, precisão e uma atenção honesta ao que transforma ideia em experiência funcional.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center gap-3">
+          <a class="inline-flex items-center justify-center rounded-full bg-stone-100 px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-stone-950 transition hover:bg-white" href="#projetos">
+            Ver projetos
+          </a>
+          <a class="inline-flex items-center justify-center rounded-full border border-white/14 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-stone-200 transition hover:border-ink-gold hover:text-white" data-whatsapp href="#" rel="noopener noreferrer" target="_blank">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <aside class="panel reveal rounded-2xl p-6" style="--d:120ms" aria-label="Resumo profissional">
+        <div class="hairline mb-6"></div>
+        <p class="font-serif text-3xl leading-tight text-stone-100">
+          Prompt engineering como ponte entre imaginação e entrega.
+        </p>
+        <dl class="mt-8 grid gap-5 text-sm">
+          <div>
+            <dt class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">Foco</dt>
+            <dd class="text-stone-200">IA aplicada, automações e ferramentas úteis.</dd>
+          </div>
+          <div>
+            <dt class="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">Disponibilidade</dt>
+            <dd class="text-stone-200">Aberto a conversas sobre projetos e oportunidades.</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="shell border-t border-white/[0.08] py-24" id="sobre">
+      <div class="grid gap-10 lg:grid-cols-[16rem_1fr]">
+        <div>
+          <h2 class="font-serif text-4xl font-normal tracking-[-0.02em] text-stone-100">Sobre</h2>
+        </div>
+        <div class="max-w-3xl space-y-7 text-lg font-light leading-8 text-stone-300">
+          <p class="reveal">
+            Sou entusiasta gamer, apaixonado por cães e gatos, e movido por uma relação muito forte com minha mãe, a melhor que eu poderia ter.
+          </p>
+          <p class="reveal text-stone-400" style="--d:110ms">
+            Saber como pedir para uma IA pode ser tão poderoso quanto saber escrever código. Entendo que cada um tem a sua função e que uma complementa a outra. Encontrei na engenharia de prompts uma nova forma de criar: antes o que era só uma ideia, agora é algo real e funcional.
+          </p>
+          <div class="reveal flex flex-wrap gap-2.5 pt-3" style="--d:180ms" aria-label="Traços">
+            <span class="rounded-full border border-white/12 bg-white/[0.035] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-stone-300">Família</span>
+            <span class="rounded-full border border-white/12 bg-white/[0.035] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-stone-300">Cães e gatos</span>
+            <span class="rounded-full border border-white/12 bg-white/[0.035] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-stone-300">Games</span>
+            <span class="rounded-full border border-white/12 bg-white/[0.035] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-stone-300">Prompt Engineer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell border-t border-white/[0.08] py-24" id="projetos">
+      <div class="mb-12 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <h2 class="font-serif text-4xl font-normal tracking-[-0.02em] text-stone-100 sm:text-5xl">Projetos</h2>
+        <p class="max-w-md text-sm leading-6 text-stone-500">Uma seleção curta do que já está publicado e do que está tomando forma.</p>
+      </div>
+
+      <div class="divide-y divide-white/[0.08] border-y border-white/[0.08]">
+        <article class="reveal group grid gap-5 py-8 transition-colors hover:bg-white/[0.025] sm:grid-cols-[1fr_auto] sm:items-center" style="--d:80ms">
+          <div class="flex items-start gap-4">
+            <span class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04]">
+              <img alt="" class="h-7 w-7 rounded-lg object-cover" src="https://lh3.googleusercontent.com/doObkHUjC157ZsEW7Ng3qMWOoEOqHBC3__MivDHMwWUjR3q1GNY5IFfk4aAy4CS4k5r-d6CXa__NiUpT3b46wFtTYg=s128" width="28" height="28" />
+            </span>
+            <div>
+              <h3 class="font-serif text-2xl text-stone-50 transition-colors group-hover:text-white">
+                <a href="https://chromewebstore.google.com/detail/savehelp/kgagebfadmgbbnlmjangolaoijaojbec" target="_blank" rel="noopener noreferrer">SaveHelp</a>
+              </h3>
+              <p class="mt-1 max-w-2xl text-sm leading-6 text-stone-400">
+                Backup local da escala de trabalho, compatível atualmente com o NICE.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 sm:justify-end">
+            <a class="text-xs font-semibold uppercase tracking-[0.16em] text-stone-400 underline decoration-white/20 underline-offset-4 transition hover:text-stone-100 hover:decoration-ink-gold" href="savehelp/privacidade.html">
+              Privacidade
+            </a>
+            <a class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-ink-gold transition hover:text-stone-100" href="https://chromewebstore.google.com/detail/savehelp/kgagebfadmgbbnlmjangolaoijaojbec" target="_blank" rel="noopener noreferrer">
+              Acessar
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="reveal group grid gap-5 py-8 transition-colors hover:bg-white/[0.025] sm:grid-cols-[1fr_auto] sm:items-center" style="--d:150ms">
+          <div class="flex items-start gap-4">
+            <span class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] text-ink-gold">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9.75 18.25h4.5M12 3.75v1.5m6.01.74-1.06 1.06M20.25 12h-1.5M5.25 12h-1.5m3.3-4.95L5.99 5.99m9.56 9.93a5.25 5.25 0 10-7.1 0c.62.57 1.05 1.34 1.2 2.17h4.7c.15-.83.58-1.6 1.2-2.17z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path>
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-serif text-2xl text-stone-50">AthenaHelp</h3>
+              <p class="mt-1 text-sm leading-6 text-stone-400">Em desenvolvimento.</p>
+            </div>
+          </div>
+          <div class="w-full min-w-[11rem] sm:w-48">
+            <div class="mb-2 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.16em] text-stone-500">
+              <span>Progresso</span>
+              <span>95%</span>
+            </div>
+            <div class="h-1 rounded-full bg-white/[0.08]" aria-hidden="true">
+              <span class="block h-full w-[95%] rounded-full bg-ink-gold"></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell border-t border-white/[0.08] py-24" id="contato">
+      <div class="panel reveal rounded-2xl p-8 sm:p-10">
+        <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <h2 class="font-serif text-4xl font-normal tracking-[-0.02em] text-stone-100 sm:text-5xl">Vamos conversar</h2>
+            <p class="mt-5 max-w-2xl text-lg font-light leading-8 text-stone-300">
+              Quer falar de um projeto, uma oportunidade ou uma ideia em construção? O caminho mais direto é pelo WhatsApp.
+            </p>
+          </div>
+          <a class="inline-flex items-center justify-center rounded-full bg-ink-gold px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-stone-950 transition hover:bg-[#dec083]" data-whatsapp href="#" rel="noopener noreferrer" target="_blank">
+            Entrar em contato
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/[0.07] py-10">
+    <div class="shell flex flex-col gap-2 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between">
+      <span>&copy; <span id="year"></span> Joacy Freire</span>
+      <span>Portfólio pessoal</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    var whatsappUrl = "https://wa.link/xuw34q";
+    document.querySelectorAll("[data-whatsapp]").forEach(function (el) {
+      el.href = whatsappUrl;
+    });
+
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var items = document.querySelectorAll(".reveal");
+      if (!reduce && "IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.14 });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("in"); });
+      }
+    })();
+  </script>
+</body>
+</html>
