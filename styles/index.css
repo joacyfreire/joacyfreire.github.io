@@ -138,7 +138,7 @@
     }
 
     h1 {
-      margin: -60px 0 0;
+      margin: -40px 0 0;
       color: #211c1a;
       font-family: var(--display);
       font-size: clamp(3.9rem, 12vw, 7rem);
